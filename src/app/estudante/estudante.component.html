@@ -1,7 +1,27 @@
-<h2>{{estudante.name | uppercase}} Details</h2>
-<div><span>ra: </span>{{estudante.ra}}</div>
-<div><span>name: </span>{{estudante.name}}</div>
-<div><span>age: </span>{{estudante.age}}</div>
-<div><span>class: </span>{{estudante.class}}</div>
-<div><span>telephone: </span>{{estudante.telephone}}</div>
+<h2>{{estudante.name | uppercase}} Cadastro </h2>
+<div class="col"><span>RA: </span>{{estudante.ra}}</div>
+<div>
+    <label for="name">Nome: </label>
+    <input id="name" [(ngModel)]="estudante.name" placeholder="Digite o nome">
+  </div>
+<div>
+    <label for="age">Idade: </label>
+    <input id="age" [(ngModel)]="estudante.age" placeholder="Digite a idade">
+  </div>
+<div>
+    <label for="class">Sala: </label>
+    <input id="class" [(ngModel)]="estudante.class" placeholder="Digite a turma">
+  </div>
+<div>
+    <label for="telephone">Telefone: </label>
+    <input id="telephone" [(ngModel)]="estudante.telephone" placeholder="Digite o telefone">
+  </div>
+<br>
+<h3>Dados do Aluno</h3>
+<div><span>Nome: </span>{{estudante.name}}</div>
+<div><span>Idade: </span>{{estudante.age}}</div>
+<div><span>Sala: </span>{{estudante.class}}</div>
+<div><span>Telefone: </span>{{estudante.telephone}}</div>
+
+
 
