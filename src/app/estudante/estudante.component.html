@@ -23,5 +23,12 @@
 <div><span>Sala: </span>{{estudante.class}}</div>
 <div><span>Telefone: </span>{{estudante.telephone}}</div>
 
+<h2>My Students</h2>
+<ul class="estudantes">
+  <li *ngFor="let estudante of estudantes" (click)="onSelect(estudante)">
+    <span class="badge">{{estudante.ra}} {{estudante.name}}</span>{{estudante.age}} {{estudante.class}} {{estudante.telephone}}
+  </li>
+</ul>
+
 
 
