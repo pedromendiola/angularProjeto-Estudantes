@@ -14,7 +14,9 @@ export class EstudanteComponent implements OnInit {
   
 
   estudantes = ESTUDANTE;
+
   selectedEstudante?: Estudante;
+  
   estudante: Estudante = {
     ra: 1,
     name: 'Pedro',

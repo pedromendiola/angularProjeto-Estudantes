@@ -1,21 +1,23 @@
+<div *ngIf="selectedEstudante">
 <h2>{{estudante.name | uppercase}} Cadastro </h2>
-<div class="col"><span>RA: </span>{{estudante.ra}}</div>
+<div class="col"><span>RA: </span>{{selectedEstudante.ra}}</div>
 <div>
     <label for="name">Nome: </label>
-    <input id="name" [(ngModel)]="estudante.name" placeholder="Digite o nome">
+    <input id="name" [(ngModel)]="selectedEstudante.name" placeholder="Digite o nome">
   </div>
 <div>
     <label for="age">Idade: </label>
-    <input id="age" [(ngModel)]="estudante.age" placeholder="Digite a idade">
+    <input id="age" [(ngModel)]="selectedEstudante.age" placeholder="Digite a idade">
   </div>
 <div>
     <label for="class">Sala: </label>
-    <input id="class" [(ngModel)]="estudante.class" placeholder="Digite a turma">
+    <input id="class" [(ngModel)]="selectedEstudante.class" placeholder="Digite a turma">
   </div>
 <div>
     <label for="telephone">Telefone: </label>
-    <input id="telephone" [(ngModel)]="estudante.telephone" placeholder="Digite o telefone">
+    <input id="telephone" [(ngModel)]="selectedEstudante.telephone" placeholder="Digite o telefone">
   </div>
+</div>
 <br>
 <h3>Dados do Aluno</h3>
 <div><span>Nome: </span>{{estudante.name}}</div>
@@ -25,7 +27,9 @@
 
 <h2>My Students</h2>
 <ul class="estudantes">
-  <li *ngFor="let estudante of estudantes" (click)="onSelect(estudante)">
+  <li *ngFor="let estudante of estudantes" 
+  [class.selected]="estudante === selectedEstudante"
+  (click)="onSelect(estudante)">
     <span class="badge">{{estudante.ra}} {{estudante.name}}</span>{{estudante.age}} {{estudante.class}} {{estudante.telephone}}
   </li>
 </ul>
