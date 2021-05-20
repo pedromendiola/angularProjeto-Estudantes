@@ -1,23 +1,4 @@
-<div *ngIf="selectedEstudante">
-<h2>{{estudante.name | uppercase}} Cadastro </h2>
-<div class="col"><span>RA: </span>{{selectedEstudante.ra}}</div>
-<div>
-    <label for="name">Nome: </label>
-    <input id="name" [(ngModel)]="selectedEstudante.name" placeholder="Digite o nome">
-  </div>
-<div>
-    <label for="age">Idade: </label>
-    <input id="age" [(ngModel)]="selectedEstudante.age" placeholder="Digite a idade">
-  </div>
-<div>
-    <label for="class">Sala: </label>
-    <input id="class" [(ngModel)]="selectedEstudante.class" placeholder="Digite a turma">
-  </div>
-<div>
-    <label for="telephone">Telefone: </label>
-    <input id="telephone" [(ngModel)]="selectedEstudante.telephone" placeholder="Digite o telefone">
-  </div>
-</div>
+<app-aluno-detail [estudante]="selectedEstudante"></app-aluno-detail>
 <br>
 <h3>Dados do Aluno</h3>
 <div><span>Nome: </span>{{estudante.name}}</div>
@@ -33,6 +14,7 @@
     <span class="badge">{{estudante.ra}} {{estudante.name}}</span>{{estudante.age}} {{estudante.class}} {{estudante.telephone}}
   </li>
 </ul>
+
 
 
 
