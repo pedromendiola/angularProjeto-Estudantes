@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Estudante } from '../estudante';
 import { ESTUDANTE } from '../mock-estudantes';
-
-
+import { EstudanteService } from '../estudante.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-estudante',
@@ -12,8 +12,7 @@ import { ESTUDANTE } from '../mock-estudantes';
 })
 export class EstudanteComponent implements OnInit {
   
-
-  estudantes = ESTUDANTE;
+  estudantes: Estudante[] = [];
 
   selectedEstudante?: Estudante;
   
@@ -25,14 +24,23 @@ export class EstudanteComponent implements OnInit {
     telephone: 123456789,
   };
 
-  constructor() { }
+  constructor(private estudanteService: EstudanteService, private messageService: MessageService) {}
 
   ngOnInit(): void {
+    this.getEstudantes();
   }
 
+  getEstudantes(): void {
+    this.estudanteService.getEstudantes()
+    .subscribe(estudantes => this.estudantes = estudantes);
+  }
+ 
   
   onSelect(estudante: Estudante): void {
   this.selectedEstudante = estudante;
+  this.messageService.add(`EstudanteComponent: Selected estudante name=${estudante.name}`);
 }
+
+
 
 }
