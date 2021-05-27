@@ -1,5 +1,3 @@
-<app-aluno-detail [estudante]="selectedEstudante"></app-aluno-detail>
-<br>
 <h3>Dados do Aluno</h3>
 <div><span>Nome: </span>{{estudante.name}}</div>
 <div><span>Idade: </span>{{estudante.age}}</div>
@@ -8,10 +6,10 @@
 
 <h2>My Students</h2>
 <ul class="estudantes">
-  <li *ngFor="let estudante of estudantes" 
-  [class.selected]="estudante === selectedEstudante"
-  (click)="onSelect(estudante)">
-    <span class="badge">{{estudante.ra}} {{estudante.name}}</span>{{estudante.age}} {{estudante.class}} {{estudante.telephone}}
+  <li *ngFor="let estudante of estudantes">
+    <a routerLink="/detail/{{estudante.ra}}">
+      <span class="badge">{{estudante.ra}}</span> {{estudante.name}}
+    </a>
   </li>
 </ul>
 

@@ -8,14 +8,12 @@ import { MessageService } from '../message.service';
   selector: 'app-estudante',
   templateUrl: './estudante.component.html',
   styleUrls: ['./estudante.component.css']
-  
+
 })
 export class EstudanteComponent implements OnInit {
-  
+
   estudantes: Estudante[] = [];
 
-  selectedEstudante?: Estudante;
-  
   estudante: Estudante = {
     ra: 1,
     name: 'Pedro',
@@ -24,7 +22,7 @@ export class EstudanteComponent implements OnInit {
     telephone: 123456789,
   };
 
-  constructor(private estudanteService: EstudanteService, private messageService: MessageService) {}
+  constructor(private estudanteService: EstudanteService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.getEstudantes();
@@ -32,15 +30,6 @@ export class EstudanteComponent implements OnInit {
 
   getEstudantes(): void {
     this.estudanteService.getEstudantes()
-    .subscribe(estudantes => this.estudantes = estudantes);
+      .subscribe(estudantes => this.estudantes = estudantes);
   }
- 
-  
-  onSelect(estudante: Estudante): void {
-  this.selectedEstudante = estudante;
-  this.messageService.add(`EstudanteComponent: Selected estudante name=${estudante.name}`);
-}
-
-
-
 }
