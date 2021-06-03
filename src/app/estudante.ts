@@ -1,7 +1,7 @@
 export interface Estudante {
-    ra: number;
+    id: number;
     name: string;
     age: number;
-    class: string;
+    sala: string;
     telephone: number;
 }

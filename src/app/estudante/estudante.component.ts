@@ -14,13 +14,7 @@ export class EstudanteComponent implements OnInit {
 
   estudantes: Estudante[] = [];
 
-  estudante: Estudante = {
-    ra: 1,
-    name: 'Pedro',
-    age: 20,
-    class: 'ADS',
-    telephone: 123456789,
-  };
+
 
   constructor(private estudanteService: EstudanteService, private messageService: MessageService) { }
 
@@ -31,5 +25,21 @@ export class EstudanteComponent implements OnInit {
   getEstudantes(): void {
     this.estudanteService.getEstudantes()
       .subscribe(estudantes => this.estudantes = estudantes);
+  }
+
+  add(name: string, age: number, sala: string, telephone: number): void {
+    name = name.trim();
+    sala = sala.trim();
+
+    if (!name) { return; }
+    if (!sala) { return; }
+    this.estudanteService.addEstudante({ name, age, sala, telephone } as Estudante)
+      .subscribe(estudante => {
+        this.estudantes.push(estudante);
+      });
+  }
+  delete(estudante: Estudante): void {
+    this.estudantes = this.estudantes.filter(est => est !== estudante);
+    this.estudanteService.deleteEstudante(estudante.id).subscribe();
   }
 }

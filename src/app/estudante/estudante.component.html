@@ -1,18 +1,26 @@
-<h3>Dados do Aluno</h3>
-<div><span>Nome: </span>{{estudante.name}}</div>
-<div><span>Idade: </span>{{estudante.age}}</div>
-<div><span>Sala: </span>{{estudante.class}}</div>
-<div><span>Telefone: </span>{{estudante.telephone}}</div>
-
 <h2>My Students</h2>
 <ul class="estudantes">
   <li *ngFor="let estudante of estudantes">
-    <a routerLink="/detail/{{estudante.ra}}">
-      <span class="badge">{{estudante.ra}}</span> {{estudante.name}}
+    <a routerLink="/detail/{{estudante.id}}">
+      <span class="badge">{{estudante.id}}</span> {{estudante.name}}
     </a>
+    <button class="delete" title="delete estudante" (click)="delete(estudante)">x</button>
   </li>
 </ul>
+<div>
+  <h3>Adicionar Estudantes</h3>
+  <label for="new-estudante"> Estudante nome: </label>
+  <input id="new-estudante" #estudanteName />
+  <label for="new-estudante"> Estudante idade: </label>
+  <input id="new-estudante" #estudanteAge />
+  <label for="new-estudante"> Estudante sala: </label>
+  <input id="new-estudante" #estudanteSala />
+  <label for="new-estudante"> Estudante telefone: </label>
+  <input id="new-estudante" #estudanteTelephone />
 
-
-
-
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button class="add-button"
+    (click)="add(estudanteName.value,estudanteAge.value,estudanteSala.value,estudanteTelephone.value); estudanteName.value='';estudanteAge.value='';estudanteSala.value='';estudanteTelephone.value=''">
+    Adicionar novo estudante
+  </button>
+</div>

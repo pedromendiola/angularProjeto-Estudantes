@@ -11,11 +11,11 @@ const routes: Routes = [
 
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 
-  { path: 'detail/:ra', component: AlunoDetailComponent },
+  { path: 'detail/:id', component: AlunoDetailComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {   }
+export class AppRoutingModule { }
