@@ -2,6 +2,6 @@ export interface Estudante {
     id: number;
     name: string;
     age: number;
-    sala: string;
+    course: string;
     telephone: number;
 }

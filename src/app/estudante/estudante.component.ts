@@ -12,7 +12,9 @@ import { MessageService } from '../message.service';
 })
 export class EstudanteComponent implements OnInit {
 
+  
   estudantes: Estudante[] = [];
+
 
 
 
@@ -27,13 +29,13 @@ export class EstudanteComponent implements OnInit {
       .subscribe(estudantes => this.estudantes = estudantes);
   }
 
-  add(name: string, age: number, sala: string, telephone: number): void {
+  add(name: string, age: number, course: string, telephone: number): void {
     name = name.trim();
-    sala = sala.trim();
+    course = course.trim();
 
     if (!name) { return; }
-    if (!sala) { return; }
-    this.estudanteService.addEstudante({ name, age, sala, telephone } as Estudante)
+    if (!course) { return; }
+    this.estudanteService.addEstudante({ name, age, course, telephone } as Estudante)
       .subscribe(estudante => {
         this.estudantes.push(estudante);
       });

@@ -11,7 +11,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class EstudanteService {
 
-  private estudantesUrl = 'http://localhost:3000/estudantes';  // URL to web api
+  private estudantesUrl = 'http://localhost:8080/estudantes';  // URL to web api
 
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

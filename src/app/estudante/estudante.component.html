@@ -14,13 +14,13 @@
   <label for="new-estudante"> Estudante idade: </label>
   <input id="new-estudante" #estudanteAge />
   <label for="new-estudante"> Estudante sala: </label>
-  <input id="new-estudante" #estudanteSala />
+  <input id="new-estudante" #estudanteCourse />
   <label for="new-estudante"> Estudante telefone: </label>
   <input id="new-estudante" #estudanteTelephone />
 
   <!-- (click) passes input value to add() and then clears the input -->
   <button class="add-button"
-    (click)="add(estudanteName.value,estudanteAge.value,estudanteSala.value,estudanteTelephone.value); estudanteName.value='';estudanteAge.value='';estudanteSala.value='';estudanteTelephone.value=''">
+    (click)="add(estudanteName.value,estudanteAge.value,estudanteCourse.value,estudanteTelephone.value); estudanteName.value='';estudanteAge.value='';estudanteCourse.value='';estudanteTelephone.value=''">
     Adicionar novo estudante
   </button>
 </div>

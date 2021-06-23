@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   }
   getEstudantes(): void {
     this.estudanteService.getEstudantes()
-      .subscribe(estudantes => this.estudantes = estudantes.slice(1, 5));
+      .subscribe(estudantes => this.estudantes = estudantes.slice(1, 10));
   }
 
 }
